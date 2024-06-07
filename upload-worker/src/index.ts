@@ -9,6 +9,10 @@ const app = new Hono()
 const REPO_URL = "https://github.com/dhairyathedev/test-react-app"
 
 app.get('/', async (c) => {
+  return c.text('Welcome to Vercel Clone!')
+})
+
+app.get('/deploy', async (c) => {
   const git = simpleGit()
   const id = generateId()
   await git.clone(REPO_URL, path.join(__dirname, `repo/${id}`))
